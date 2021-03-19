@@ -1,0 +1,10 @@
+server: clean
+	gcc -g server_led_button.c -o server_led_button -lwiringPi
+	gcc -g server_lcd_button.c -o server_lcd_button -lwiringPi
+	gcc -g server_servo_button.c -o server_servo_button -lwiringPi
+	gcc -g server_led_slider.c -o server_led_slider -lwiringPi
+	gcc -g server_lcd_slider.c -o server_lcd_slider -lwiringPi
+	gcc -g server_servo_slider.c -o server_servo_slider -lwiringPi
+
+clean:
+	\rm -f server_led_button server_lcd_button server_servo_button server_led_slider server_lcd_slider server_servo_slider

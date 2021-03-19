@@ -1,0 +1,23 @@
+client: clean client_led_button client_lcd_button client_servo_button client_led_slider client_servo_slider client_lcd_slider
+
+client_led_button:
+	qmake client_led_button.pro; make clean; make
+
+client_lcd_button:
+	qmake client_lcd_button.pro; make clean; make
+
+client_servo_button:
+	qmake client_servo_button.pro; make clean; make
+
+client_led_slider:
+	qmake client_led_slider.pro; make clean; make
+
+client_lcd_slider:
+	qmake client_lcd_slider.pro; make clean; make
+
+client_servo_slider:
+	qmake client_servo_slider.pro; make clean; make
+
+
+clean:
+	\rm -f client_led_button client_lcd_button client_servo_button client_led_slider client_servo_slider client_lcd_slider *.o moc* .qmake.stash
