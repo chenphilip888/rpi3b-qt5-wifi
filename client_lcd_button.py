@@ -108,9 +108,10 @@ class Client_lcd_button(QMainWindow):
             data = sock.recv(1024)
             self.statusBar().showMessage(repr(data))
         elif sender.text() == "Sendtxt":
-            sock.sendall(bytearray(self.qle.text().encode('utf-8')))
-            data = sock.recv(1024)
-            self.statusBar().showMessage(repr(data))
+            if self.qle.text():
+                sock.sendall(bytearray(self.qle.text().encode('utf-8')))
+                data = sock.recv(1024)
+                self.statusBar().showMessage(repr(data))
         
 if __name__ == '__main__':
     
