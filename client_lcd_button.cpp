@@ -91,6 +91,7 @@ Client_lcd_button::Client_lcd_button(QWidget *parent)
   connect(edt2, &QLineEdit::textChanged, this, &Client_lcd_button::setText);
   connect(textBtn, &QPushButton::clicked, this, &Client_lcd_button::sendText);
 
+  m_text = QString();
   sock = make_socket();
 }
 
@@ -111,9 +112,11 @@ void Client_lcd_button::send_lcd( const char * lcd ) {
 
 void Client_lcd_button::sendText() {
 
-  QByteArray inBytes = m_text.toLocal8Bit();
-  const char * lcd = inBytes.data();
-  send_lcd( lcd );
+  if (! m_text.isEmpty()) {
+      QByteArray inBytes = m_text.toLocal8Bit();
+      const char * lcd = inBytes.data();
+      send_lcd( lcd );
+  }
 }
 
 void Client_lcd_button::OnRed() {
